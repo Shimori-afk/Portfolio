@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+
+:root {
+  /* Premium SaaS blueprint palette */
+  --blue-950: #09131c;
+  --blue-940: #0c1925;
+  --blue-900: #101f2d;
+  --blue-850: #152c3d;
+  --blue-800: #1d374d;
+  --blue-700: #2a4d68;
+  --line: rgba(168, 189, 214, 0.12);
+  --line-strong: rgba(186, 204, 224, 0.18);
+
+  --ink: #edf4ff;
+  --ink-strong: #ffffff;
+  --ink-dim: #c0d0e3;
+  --ink-faint: #8da2b8;
+
+  --accent: #7ec9ff;
+  --accent-strong: #8dd8ff;
+  --accent-deep: #5aa6e6;
+  --orange: #ff8a5c;
+  --orange-strong: #ff9a72;
+  --orange-dim: #df7242;
+  --panel-shadow: rgba(4, 9, 17, 0.42);
+
+  --font-display: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top, rgba(126, 201, 255, 0.12), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255, 138, 92, 0.06), transparent 26%),
+    linear-gradient(180deg, #09131c 0%, #0d1926 100%);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+a { color: inherit; }
+
+::selection {
+  background: var(--orange);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--blue-950); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--blue-700), var(--blue-850));
+  border-radius: 8px;
+  border: 2px solid var(--blue-950);
+}

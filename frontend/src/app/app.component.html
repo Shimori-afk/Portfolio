@@ -1,0 +1,234 @@
+<div class="sheet">
+
+  <!-- ===== FIXED SHEET INDEX NAV ===== -->
+  <header class="topbar">
+    <div class="topbar__mark">
+      <span class="topbar__crosshair">✛</span>
+      M.L. — DWG SET
+    </div>
+    <nav class="topbar__nav">
+      <button
+        *ngFor="let item of navItems"
+        class="navlink"
+        [class.navlink--active]="activeNav === item.id"
+        (click)="scrollTo(item.id)"
+      >
+        <span class="navlink__no">{{ item.sheetNo }}</span>{{ item.label }}
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== SHEET 01 — OVERVIEW / HERO ===== -->
+  <section id="home" class="panel panel--hero">
+    <span class="corner corner--tl"></span>
+    <span class="corner corner--tr"></span>
+    <span class="corner corner--bl"></span>
+    <span class="corner corner--br"></span>
+
+    <p class="panel__eyebrow">SHEET 01 / 05 — OVERVIEW</p>
+
+    <h1 class="hero__name">
+      MAKSYM<br />LEONOVYCH
+    </h1>
+    <p class="hero__role">FULL&#8209;STACK&nbsp;.NET&nbsp;ENGINEER</p>
+
+    <p class="hero__pitch">
+      I design and build web applications end to end — from the database up
+      to the interface: backends in ASP.NET Core, frontends in Angular.
+      Bridging clean code with real business needs.
+    </p>
+
+    <div class="dim-facts">
+      <div class="dim-fact" *ngFor="let fact of facts">
+        <span class="dim-fact__line"></span>
+        <span class="dim-fact__value">{{ fact.value }}</span>
+        <span class="dim-fact__label">{{ fact.label }}</span>
+      </div>
+    </div>
+
+    <div class="hero__cta">
+      <button class="btn btn--primary" (click)="scrollTo('projects')">View Projects</button>
+      <button class="btn btn--ghost" (click)="scrollTo('contact')">Get in Touch</button>
+    </div>
+
+    <div class="titleblock">
+      <div class="titleblock__meta">
+        <span class="titleblock__k">DRAWING</span>
+        <span class="titleblock__v">PORTFOLIO — HOME</span>
+      </div>
+      <div class="titleblock__meta">
+        <span class="titleblock__k">SCALE</span>
+        <span class="titleblock__v">1:1</span>
+      </div>
+      <div class="titleblock__meta">
+        <span class="titleblock__k">DRAWN BY</span>
+        <span class="titleblock__v">M. LEONOVYCH</span>
+      </div>
+      <div class="titleblock__meta">
+        <span class="titleblock__k">SHEET</span>
+        <span class="titleblock__v">01 OF 05</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHEET 02 — GENERAL NOTES / ABOUT ===== -->
+  <section id="about" class="panel">
+    <span class="corner corner--tl"></span>
+    <span class="corner corner--tr"></span>
+    <p class="panel__eyebrow">SHEET 02 / 05 — GENERAL NOTES</p>
+    <h2 class="panel__title">About Me</h2>
+
+    <ol class="notes">
+      <li class="notes__item" *ngFor="let note of generalNotes">{{ note }}</li>
+    </ol>
+  </section>
+
+  <!-- ===== SHEET 03 — BILL OF MATERIALS / STACK ===== -->
+  <section id="stack" class="panel">
+    <span class="corner corner--tl"></span>
+    <span class="corner corner--tr"></span>
+    <p class="panel__eyebrow">SHEET 03 / 05 — BILL OF MATERIALS</p>
+    <h2 class="panel__title">Tech Stack</h2>
+
+    <div class="stack-grid">
+      <div class="stack-card" *ngFor="let group of stackGroups">
+        <span class="corner corner--tl corner--sm"></span>
+        <span class="corner corner--br corner--sm"></span>
+
+        <div class="stack-card__head">
+          <span class="stack-icon" [attr.data-icon]="group.icon" aria-hidden="true">
+            <ng-container [ngSwitch]="group.icon">
+              <svg *ngSwitchCase="'backend'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3.5" y="4" width="17" height="6" rx="1.2"/>
+                <rect x="3.5" y="14" width="17" height="6" rx="1.2"/>
+                <circle cx="7" cy="7" r="0.9" fill="currentColor" stroke="none"/>
+                <circle cx="7" cy="17" r="0.9" fill="currentColor" stroke="none"/>
+              </svg>
+              <svg *ngSwitchCase="'frontend'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <polyline points="8.5 8 4.5 12 8.5 16"/>
+                <polyline points="15.5 8 19.5 12 15.5 16"/>
+                <line x1="13.5" y1="5.5" x2="10.5" y2="18.5"/>
+              </svg>
+              <svg *ngSwitchCase="'database'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <ellipse cx="12" cy="6" rx="7.5" ry="2.8"/>
+                <path d="M4.5 6v12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6"/>
+                <path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>
+              </svg>
+              <svg *ngSwitchCase="'tools'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <polyline points="7 6 3 12 7 18"/>
+                <line x1="10.5" y1="18" x2="13.5" y2="6"/>
+                <line x1="17" y1="9" x2="21" y2="9"/>
+                <line x1="17" y1="15" x2="21" y2="15"/>
+              </svg>
+            </ng-container>
+          </span>
+          <h3 class="stack-card__title">{{ group.label }}</h3>
+        </div>
+
+        <div class="stack-card__chips">
+          <span class="stack-chip" *ngFor="let item of group.items">
+            {{ item }}
+            <svg class="stack-chip__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 6 15 12 9 18"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHEET 04 — PROJECTS ===== -->
+  <section id="projects" class="panel">
+    <span class="corner corner--tl"></span>
+    <span class="corner corner--tr"></span>
+    <p class="panel__eyebrow">SHEET 04 / 05 — PROJECT INDEX</p>
+    <h2 class="panel__title">Projects</h2>
+
+    <div class="drawings">
+      <a
+        class="drawing-card"
+        *ngFor="let project of projects"
+        [href]="project.url"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="corner corner--tl corner--sm"></span>
+        <span class="corner corner--br corner--sm"></span>
+        <div class="drawing-card__head">
+          <span class="drawing-card__no">{{ project.sheetNo }}</span>
+          <span class="drawing-card__rev">{{ project.rev }}</span>
+        </div>
+        <h3 class="drawing-card__title">{{ project.title }}</h3>
+        <p class="drawing-card__desc">{{ project.description }}</p>
+        <div class="drawing-card__specs">
+          <span class="spec-chip" *ngFor="let spec of project.specs">{{ spec }}</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== SHEET 05 — REVISIONS / CONTACT ===== -->
+  <section id="contact" class="panel">
+    <span class="corner corner--tl"></span>
+    <span class="corner corner--tr"></span>
+    <p class="panel__eyebrow">SHEET 05 / 05 — REVISION BLOCK</p>
+    <h2 class="panel__title">Contact</h2>
+
+    <div class="contact-grid">
+      <div class="revision-table">
+        <div class="revision-row revision-row--head">
+          <span>REV</span>
+          <span>CHANNEL</span>
+          <span>REF</span>
+        </div>
+        <div class="revision-row">
+          <span>A</span>
+          <span>EMAIL</span>
+          <span>maksym.leonovych&#64;gmail.com</span>
+        </div>
+        <div class="revision-row">
+          <span>B</span>
+          <span>GITHUB</span>
+          <span>github.com/Shimori-afk</span>
+        </div>
+        <div class="revision-row">
+          <span>C</span>
+          <span>LINKEDIN</span>
+          <span>linkedin.com/in/Maksym-Leonovych</span>
+        </div>
+        <div class="revision-row">
+          <span>D</span>
+          <span>LOCATION</span>
+          <span>Lviv, Ukraine</span>
+        </div>
+      </div>
+
+      <form class="contact-form" (ngSubmit)="submitContactForm()" #contactForm="ngForm">
+        <label class="field">
+          <span class="field__label">NAME</span>
+          <input class="field__input" type="text" name="name" [(ngModel)]="form.name" placeholder="Your name" [disabled]="formStatus === 'sending'" />
+        </label>
+        <label class="field">
+          <span class="field__label">EMAIL</span>
+          <input class="field__input" type="email" name="email" [(ngModel)]="form.email" placeholder="you@example.com" [disabled]="formStatus === 'sending'" />
+        </label>
+        <label class="field">
+          <span class="field__label">MESSAGE</span>
+          <textarea class="field__input field__input--area" name="message" rows="4" [(ngModel)]="form.message" placeholder="Tell me about your project or idea" [disabled]="formStatus === 'sending'"></textarea>
+        </label>
+
+        <p class="form-status form-status--error" *ngIf="formStatus === 'error'">✕ {{ formErrorMessage }}</p>
+        <p class="form-status form-status--ok" *ngIf="formStatus === 'success'">✓ Message sent. Thanks — I'll get back to you soon.</p>
+
+        <button class="btn btn--primary" type="submit" [disabled]="formStatus === 'sending'">
+          {{ formStatus === 'sending' ? 'Sending…' : 'Send →' }}
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© {{ currentYear }} MAKSYM LEONOVYCH</span>
+    <span class="footer__dim">ANGULAR · ASP.NET CORE</span>
+  </footer>
+</div>
