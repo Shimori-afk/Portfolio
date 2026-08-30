@@ -87,7 +87,7 @@ export class AppComponent implements OnInit, OnDestroy {
       description: 'This site: an Angular frontend paired with an ASP.NET Core API exposing a contact form endpoint with validation and logging.',
       specs: ['ASP.NET Core', 'Angular', 'REST API'],
       rev: 'REV A',
-      url: '#'
+      url: 'https://github.com/Shimori-afk/Portfolio'
     },
     {
       sheetNo: 'A-02',
@@ -95,7 +95,7 @@ export class AppComponent implements OnInit, OnDestroy {
       description: 'Replace with a real case study: what problem it solves, the stack behind it, and your role on the team.',
       specs: ['C#', 'SQL Server', 'Docker'],
       rev: 'REV A',
-      url: '#'
+      url: 'https://github.com/Shimori-afk/Job-tracker'
     },
     {
       sheetNo: 'A-03',
