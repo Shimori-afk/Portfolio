@@ -91,7 +91,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       sheetNo: 'A-02',
-      title: 'Project Sample #2',
+      title: 'Job Tracker',
       description: 'Replace with a real case study: what problem it solves, the stack behind it, and your role on the team.',
       specs: ['C#', 'SQL Server', 'Docker'],
       rev: 'REV A',
