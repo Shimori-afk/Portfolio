@@ -91,19 +91,19 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       sheetNo: 'A-02',
-      title: 'Job Tracker',
-      description: 'Replace with a real case study: what problem it solves, the stack behind it, and your role on the team.',
-      specs: ['C#', 'SQL Server', 'Docker'],
-      rev: 'REV A',
-      url: 'https://github.com/Shimori-afk/Job-tracker'
-    },
+            title: 'Job Tracker',
+                  description: 'Replace with a real case study: what problem it solves, the stack behind it, and your role on the team.',
+                        specs: ['C#', 'SQL Server', 'Docker'],
+                              rev: 'REV A',
+                                    url: 'https://github.com/Shimori-afk/Job-tracker'
+                                        },
     {
       sheetNo: 'A-03',
       title: 'Project Sample #3',
       description: 'Another slot for a real case study: a microservice, a third-party API integration, or an internal tool.',
       specs: ['ASP.NET Core', 'Angular', 'CI/CD'],
       rev: 'REV A',
-      url: '#'
+      url: 'https://github.com/Shimori-afk'
     },
   ];
 
